@@ -1,0 +1,7 @@
+<view class="logo">
+    <image class="image" src="../../images/Logo.png" mode="widthFix"/>
+</view>
+  
+
+  
+<button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain="{{true}}">登录</button>

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.5.2",
+    "mockjs": "^1.1.0"
+  },
+  "devDependencies": {
+    "mark.js": "^8.11.1"
+  }
+}
