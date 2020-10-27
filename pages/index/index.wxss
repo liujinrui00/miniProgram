@@ -1,20 +1,21 @@
 .van-card {
-
 }
+page{
+   background-color:#fbf4f4
+    }
 .navigator{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 97%;
+    border: 1px solid #ffffff;
+    margin: auto;
 }  
 .tagsStyle {
-    background-color: rgba(243, 243, 243, 0.46);
-    height: 250rpx;
+    background-color: #ffffff;
+    height: 100%;
     width: 100%;
     margin-bottom: 20rpx;
 }
 .content {
-    height: 180rpx;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -34,23 +35,29 @@
   .delete-button {
     height: 100%;
   }
-
   .van-swipe-cell__right {
     display: inline-block;
-    width: 65px;
-    height: 50px;
+    width: 60px;
+    height: 30px;
     font-size: 15px;
-    line-height: 50px;
+    line-height: 20px;
     color: #fff;
     text-align: center;
     background-color: #f44;
   }
   .orderDetail{
       width: 100%;
+      padding: 5rpx 0;
   }
 .orderDate{
     position: relative;
     bottom: 0;
     right: 0;
+    padding: 10rpx 0;
+}
+.deleteStyle{
+    position: absolute;
+    top: 18rpx;
+    left: 35rpx;
 }
   

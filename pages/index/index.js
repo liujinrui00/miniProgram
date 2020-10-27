@@ -65,4 +65,13 @@ Page({
       orders1:res.data.data,    
     })
   },
+  navClick(){
+    console.log("AESCR")
+    wx.navigateTo({
+      url: '/pages/detail/detail',
+      success: (result) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
+  }
 })

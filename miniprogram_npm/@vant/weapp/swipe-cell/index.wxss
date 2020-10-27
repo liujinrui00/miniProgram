@@ -8,8 +8,8 @@
 .van-swipe-cell__left,
 .van-swipe-cell__right {
     position: absolute;
-    top: 60rpx;
-    height: 50%
+    top: 110rpx;
+    height: 25%
 }
 
 .van-swipe-cell__left {
