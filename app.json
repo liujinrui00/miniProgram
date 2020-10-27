@@ -1,12 +1,15 @@
 { 
-  "pages":[        
+  "pages":[             
     "pages/login/login",
     "pages/index/index",
-    
     "pages/auth/auth",
     "pages/logs/logs",
     "pages/detail/detail",
-    "pages/add/add"
+    "pages/add/add",
+    "pages/user/user",
+    "pages/noFollow/noFollow",
+    "pages/completed/completed"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,5 +17,40 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
+  "tabBar": {
+    "color": "",
+    "selectedColor": "#e56b3e",
+    "backgroundColor": "",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "正在跟进",
+        "iconPath": "icons/a.png",
+        "selectedIconPath": "icons/a-o.png"
+      },
+      {
+        "pagePath": "pages/noFollow/noFollow",
+        "text": "未跟进",
+        "iconPath": "icons/b.png",
+        "selectedIconPath": "icons/b-o.png"
+      },
+      {
+        "pagePath": "pages/completed/completed",
+        "text": "已完成",
+        "iconPath": "icons/c.png",
+        "selectedIconPath": "icons/c-o.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "icons/d.png",
+        "selectedIconPath": "icons/d-o.png"
+      }
+    ]
+  },
+  
+    
   "sitemapLocation": "sitemap.json"
 }

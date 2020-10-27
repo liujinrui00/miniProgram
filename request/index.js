@@ -24,6 +24,7 @@ export const request=(params)=>{
      ...params,
      header:header,
      url:baseUrl+params.url,
+     timeout:3000,
      success:(result)=>{
       //  resolve(result.data.message);
         resolve(result)

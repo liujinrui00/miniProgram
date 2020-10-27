@@ -5,8 +5,8 @@
   background-color: #fff;
 }
 .order_mian {
-  margin-bottom: 50px;
-  height: 92%;
+  margin-bottom: 100rpx;
+  height: 94%;
   position: fixed;
   width: 100%;
   overflow: scroll;
@@ -24,13 +24,14 @@
 
 .order_no_row {
   display: flex;
-  padding: 10px 0;
+  padding: 20rpx 0;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .order_price_row {
   display: flex;
-  padding: 10px 0;
+  padding: 20px 0;
   justify-content: space-between;
 }
 
@@ -41,7 +42,7 @@
 
 .order_time_row {
   display: flex;
-  padding: 10px 0;
+  padding: 20rpx 0;
   justify-content: space-between;
 }
 .btnStyle {

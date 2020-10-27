@@ -29,7 +29,7 @@ Page({
     //   create_time_cn:2020/10/21
     // }],
     orders:[],
-    isdisplay:true
+    btnShow:true
   },
   onLoad:function (options) {
     // 能用
@@ -52,9 +52,9 @@ Page({
     const res = await request({
       url:'/mock',
     })
-  //  console.log(res);
+  //  console.log(res);data
     this.setData({
-      orders:res.data.projects
+      orders:res.data.data
     })
   }, 
 })
