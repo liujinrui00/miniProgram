@@ -1,58 +1,63 @@
-.page{
-  height: 100%;
+.van-card {
 }
-.btn {
-  background-color: #fff;
-}
-.order_mian {
-  margin-bottom: 100rpx;
-  height: 94%;
-  position: fixed;
-  width: 100%;
-  overflow: scroll;
-  border: 1px solid #cccccc;
-  background-color: #fafafa;
+page{
+   background-color:#fbf4f4
+    }
+.navigator{
+    width: 97%;
+    border: 1px solid #ffffff;
+    margin: auto;
+}  
+.tagsStyle {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20rpx;
 }
 .content {
-  height: 80%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 35rpx 20rpx
 }
-.order_item {
-  padding: 20rpx;
-  border-bottom: 1rpx solid #ccc;
-  color: #666;
+.addBtn{
+    position: fixed;
+    right:5%;
+    bottom: 20rpx;
 }
-
-.order_no_row {
-  display: flex;
-  padding: 20rpx 0;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+.goods-card {
+    margin: 0;
+    background-color: white;
+  }
+  
+  .delete-button {
+    height: 100%;
+  }
+  .van-swipe-cell__right {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #f44;
+  }
+  .orderDetail{
+      width: 100%;
+      padding: 5rpx 0;
+  }
+.orderDate{
+    position: relative;
+    bottom: 0;
+    right: 0;
+    padding: 10rpx 0;
 }
-
-.order_price_row {
-  display: flex;
-  padding: 20px 0;
-  justify-content: space-between;
+.deleteStyle{
+    position: absolute;
+    top: 18rpx;
+    left: 35rpx;
 }
-
-.order_price_value {
-  color: var(--themeColor);
-  font-size: 40rpx;
-}
-
-.order_time_row {
-  display: flex;
-  padding: 20rpx 0;
-  justify-content: space-between;
-}
-.btnStyle {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-.btnStyle1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 20%;
-}
+  

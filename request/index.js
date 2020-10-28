@@ -37,8 +37,7 @@ export const request=(params)=>{
       if(ajaxTimes===0){
         //关闭加载图图标
         wx.hideLoading();
-      }
-   
+      }   
     }
     });
   })

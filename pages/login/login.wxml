@@ -1,4 +1,13 @@
 <view class="logo">
     <image class="image" src="../../images/Logo.png" mode="widthFix"/>
 </view>
+
+
+<view class="row">
+        <span>
+            <input class="gate" id="move" type="text" placeholder="Secret book attack!" /><label for="move">Move</label>
+        </span>
+    </view>
+
 <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="{{true}}">登录</button>
+<!-- <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain="{{true}}"></button> -->

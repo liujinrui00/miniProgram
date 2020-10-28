@@ -1,17 +1,19 @@
+// const { request } = require("../../request")
 import {
   request
 } from "../../request/index.js";
 
+// pages/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // orders:[{
+    // orders1:[{
     //   order_number:1,
     //   order_price:1000,
-    //   create_time_cn:2020/10/21
+    //   create_time_cn:2020-10-21
     // },
     // {
     //   order_number:2,
@@ -28,33 +30,48 @@ Page({
     //   order_price:1000,
     //   create_time_cn:2020/10/21
     // }],
-    orders:[],
-    btnShow:true
+    // orders2:[{
+    //   order_number:1,
+    //   order_price:1000,
+    //   create_time_cn:1546416481315616
+    // },
+    // {
+    //   order_number:2,
+    //   order_price:1000,
+    //   create_time_cn:1546416481315616
+    // },
+    // {
+    //   order_number:3,
+    //   order_price:1000,
+    //   create_time_cn:1546416481315616
+    // },
+    // {
+    //   order_number:4,
+    //   order_price:1000,
+    //   create_time_cn:1546416481315616
+    // }],
+    orders1:[],
+
   },
-  onLoad:function (options) {
-    // 能用
-    // wx.request({
-    //   url: 'https://www.easy-mock.com/mock/5f926e13288c725a6621003f/example/mock',
-    //   data: {},
-    //   header: {'content-type':'application/json'},
-    //   method: 'GET',
-    //   dataType: 'json',
-    //   responseType: 'text',
-    //   success: (result) => {
-    //     console.log(result);
-    //   },
-    //   fail: () => {},
-    //   complete: () => {}
-    // });
-      this.getOrders();
+  onLoad:function(){
+    this.getIndex1()
   },
-  async getOrders(){
+  async getIndex1(){
     const res = await request({
-      url:'/mock',
+      url:"/mock1"
     })
-  //  console.log(res);data
+    console.log(res.data.data);
     this.setData({
-      orders:res.data.data
+      orders1:res.data.data,    
     })
-  }, 
+  },
+  navClick(){
+    console.log("AESCR")
+    wx.navigateTo({
+      url: '/pages/detail/detail',
+      success: (result) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
+  }
 })

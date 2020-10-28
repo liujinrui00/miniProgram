@@ -1,12 +1,14 @@
 { 
-  "pages":[             
+  "pages":[      
+
+    "pages/user/user",
     "pages/login/login",
+
     "pages/index/index",
     "pages/auth/auth",
     "pages/logs/logs",
     "pages/detail/detail",
     "pages/add/add",
-    "pages/user/user",
     "pages/noFollow/noFollow",
     "pages/completed/completed"
 
