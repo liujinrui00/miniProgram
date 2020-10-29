@@ -1,8 +1,15 @@
 /* pages/add/add.wxss */
+.addForm{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  /* border: 1rpx solid #d3cdcd */
+}
 .btn {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 90%;
+  margin:  0 auto;
 }
 .btn2 {
     display: flex;

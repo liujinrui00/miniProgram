@@ -19,20 +19,7 @@ App({
               const isstaff = res.data.ResultData.isstaff
               wx.setStorageSync('session_key', session_key)
               wx.setStorageSync('openid', openid)
-              if (isstaff) {
-                wx.reLaunch({
-                  url: '/pages/index/index',
-                  success: (result) => {
-                    console.log("hfaslfjlasjl");
-                  },
-                  fail: () => {},
-                  complete: () => {}
-                });
-              } else {    
-                wx.reLaunch({
-                  url: '/pages/login/login',
-                })
-              }
+              wx.setStorageSync('isstaff',isstaff)              
             }
           });
         } else {
@@ -40,6 +27,23 @@ App({
         }
       }
     });
+    var isstaff = wx.getStorageSync("isstaff");
+    if (isstaff) {
+      wx.reLaunch({
+        url: '/pages/index/index',
+        success: (result) => {
+          console.log("hfaslfjlasjl");
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+    } else {          
+      wx.navigateTo({
+        url: 'pages/login/login',
+      })
+      console.log("哈哈哈哈哈哈");    
+    }
+      
 
 
 

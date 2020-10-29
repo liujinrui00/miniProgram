@@ -4,15 +4,16 @@ page{
    background-color:#fbf4f4
     }
 .navigator{
-    width: 97%;
-    border: 1px solid #ffffff;
-    margin: auto;
+    width: 96%;
+    border: 1rpx solid #ffffff;
+    margin:  20rpx auto;
+    /* padding: 20rpx 0;  */
 }  
 .tagsStyle {
     background-color: #ffffff;
     height: 100%;
     width: 100%;
-    margin-bottom: 20rpx;
+    margin-top: -1rpx;
 }
 .content {
     height: 100%;

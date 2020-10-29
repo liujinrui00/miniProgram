@@ -1,11 +1,4 @@
 <view class="logo">
     <image class="image" src="../../images/Logo.png" mode="widthFix"/>
 </view>
-<!-- <view class="row">
-        <span>
-            <input class="gate" id="move" type="text" placeholder="请输入手机号" /><label for="move">欢迎</label>
-        </span>
-    </view> -->
-
-<!-- <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="{{true}}">登录</button> -->
 <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain="{{true}}">获取手机号</button>

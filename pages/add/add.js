@@ -1,8 +1,5 @@
-import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-import Toast  from '../../miniprogram_npm/@vant/weapp/toast/toast';
 // pages/add/add.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,19 +9,27 @@ Page({
       minHeight: 80
     },
   },
-
-  showDialog(){
-    Dialog.confirm({
-      title: '添加客户',
-      message: '是否确认添加客户',
+  formSubmit(e) {
+    console.log(e)
+    const openid = wx.getStorageSync('openid')
+    console.log(openid);
+    const d = e.detail.value
+    console.log(d);
+    wx.request({
+      url: 'https://www.aescr.club/api/1.0/user/addclient',
+      data: {
+        d
+      },
+      header: openid,
+      method: "POST",
+      timeout: 0,
+      success: (result) => {
+        console.log(result);       
+      },
+      fail: (res) => {},
+      complete: (res) => {},
     })
-      .then(() => {
-        // on confirm
-        Toast.success('添加成功');
-      })
-      .catch(() => {
-        // on cancel
-      });
-  }
+      
+  },
 
 })
