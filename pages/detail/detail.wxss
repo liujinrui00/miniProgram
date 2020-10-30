@@ -1,58 +1,55 @@
-.page{
+page{
   height: 100%;
-}
-.btn {
-  background-color: #fff;
-}
-.order_mian {
-  margin-bottom: 100rpx;
-  height: 94%;
-  position: fixed;
-  width: 100%;
-  overflow: scroll;
-  border: 1px solid #cccccc;
-  background-color: #fafafa;
-}
-.content {
-  height: 80%;
-}
-.order_item {
-  padding: 20rpx;
-  border-bottom: 1rpx solid #ccc;
-  color: #666;
-}
-
-.order_no_row {
-  display: flex;
-  padding: 20rpx 0;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
-.order_price_row {
-  display: flex;
-  padding: 20px 0;
-  justify-content: space-between;
-}
-
-.order_price_value {
-  color: var(--themeColor);
-  font-size: 40rpx;
-}
-
-.order_time_row {
-  display: flex;
-  padding: 20rpx 0;
-  justify-content: space-between;
+  background-color:#fbf4f4
 }
 .btnStyle {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 96%;
 }
 .btnStyle1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 20%;
+}
+
+.navigator{
+  width: 96%;
+  border: 1rpx solid #ffffff;
+  margin:  20rpx auto;
+  /* padding: 20rpx 0;  */
+}  
+.tagsStyle {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  margin-top: -1rpx;
+}
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 35rpx 20rpx
+}
+
+.orderDetail{
+  width: 100%;
+  padding: 5rpx 0;
+}
+.orderDate{
+position: relative;
+bottom: 0;
+right: 0;
+padding: 10rpx 0;
+}
+
+.collapse{
+  width: 96%;
+  margin: 0 auto;
+}
+.follow{
+  background-color: #2d8cf0;
 }

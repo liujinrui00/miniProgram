@@ -1,13 +1,13 @@
 <view class="addForm">
     <form bindsubmit="formSubmit">
         <van-cell-group>
-            <van-field value="{{ CompanyAddress }}" name="CompanyAddress" required clearable label="公司地址" placeholder="请输入公司地址" bind:click-icon="onClickIcon" />
-            <van-field value="{{ ContactPerson }}" name="ContactPerson" label="联系人" clearable placeholder="请输入联系人" required />
-            <van-field value="{{ ContactDetails  }}" name="ContactDetails" label="联系方式" placeholder="请输入联系方式" required clearable />
-            <van-field value="{{ CustomerSource }}" name="CustomerSource" label="客户来源" clearable placeholder="请输入客户来源" required />
-            <van-field value="{{ SourceMethod }}" name="SourceMethod" label="来源方式" clearable placeholder="请输入来源方式" required />
-            <van-field clearable value="{{ ProductType }}" name="ProductType" label="产品类型" placeholder="请输入产品类型" required />
-            <van-field clearable value="{{ BasicNeeds }}" name="BasicNeeds" label="基本需求" placeholder="请输入产品类型" required maxlength="-1" show-word-limit="{{false}}" type="textarea" autosize="{{autoSize}}" />
+            <van-field value="{{form.CompanyAddress }}" name="CompanyAddress" required clearable label="公司地址" placeholder="请输入公司地址" bind:click-icon="onClickIcon" />
+            <van-field value="{{ form.ContactPerson }}" name="ContactPerson" label="联系人" clearable placeholder="请输入联系人" required />
+            <van-field value="{{ form.ContactDetails  }}" name="ContactDetails" label="联系方式" placeholder="请输入联系方式" required clearable />
+            <van-field value="{{ form.CustomerSource }}" name="CustomerSource" label="客户来源" clearable placeholder="请输入客户来源" required />
+            <van-field value="{{ form.SourceMethod }}" name="SourceMethod" label="来源方式" clearable placeholder="请输入来源方式" required />
+            <van-field clearable value="{{ form.ProductType }}" name="ProductType" label="产品类型" placeholder="请输入产品类型" required />
+            <van-field clearable value="{{ form.BasicNeeds }}" name="BasicNeeds" label="基本需求" placeholder="请输入产品类型" required maxlength="-1" show-word-limit="{{false}}" type="textarea" autosize="{{form.autoSize}}" />
         </van-cell-group>
         <view class="btn">
             <view class="btn2">
@@ -15,4 +15,7 @@
             </view>
         </view>
     </form>
+    
+    <van-toast id="van-toast"/>
+
 </view>

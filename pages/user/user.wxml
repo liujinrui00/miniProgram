@@ -7,7 +7,7 @@
         </view>
     </view>
     <view class="user_btn" wx:else>
-        <navigator url="/pages/login/login">登录 </navigator>       
+        <button open-type="getUserInfo" type="primary" bindgetuserinfo="handleGetUserInfo">获取头像和昵称</button>
     </view>
 </view>
 

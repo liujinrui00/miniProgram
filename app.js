@@ -19,7 +19,7 @@ App({
               const isstaff = res.data.ResultData.isstaff
               wx.setStorageSync('session_key', session_key)
               wx.setStorageSync('openid', openid)
-              wx.setStorageSync('isstaff',isstaff)              
+              wx.setStorageSync('isstaff', isstaff)
             }
           });
         } else {
@@ -32,19 +32,15 @@ App({
       wx.reLaunch({
         url: '/pages/index/index',
         success: (result) => {
-          console.log("hfaslfjlasjl");
+          // console.log("hfaslfjlasjl");
         },
-        fail: () => {},
-        complete: () => {}
       });
-    } else {          
+    } else {
       wx.navigateTo({
         url: 'pages/login/login',
       })
-      console.log("哈哈哈哈哈哈");    
+      // console.log("哈哈哈哈哈哈");    
     }
-      
-
 
 
   },

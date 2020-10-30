@@ -1,4 +1,8 @@
-<view class="logo">
-    <image class="image" src="../../images/Logo.png" mode="widthFix"/>
+<view class="indexStyle">
+    <view class="logo">
+        <image class="image" src="../../images/Logo.png" mode="widthFix" />
+    </view>
+    <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain="{{true}}">
+        获取手机号
+    </button>
 </view>
-<button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain="{{true}}">获取手机号</button>

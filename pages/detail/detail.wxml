@@ -1,30 +1,36 @@
-<view class="page">
-    <view class="order_mian">
+<!-- <view class="page"></view> -->
+<!-- <view class="order_mian">
         <view class="content">
-            <navigator class="order_item" wx:for="{{orders}}" wx:for-item="item" wx:key="orders.number" data-item="{{item}}">
-                <view class="order_no_row">
-                    <view class="order_no_text">订单编号</view>
-                    <view class="order_no_value">{{item.natural}}</view>
-                </view>
-                <view class="order_price_row">
-                    <view class="order_price_text">订单价格</view>
-                    <view class="order_price_value">￥{{item.number}}</view>
-                </view>
-                <view class="order_time_row">
-                    <view class="order_time_text">订单日期</view>
-                    <view class="order_time_value">{{item.date}}</view>
-                </view>
-            </navigator>
+            <view class="order_item" wx:for="{{DemandList}}" wx:for-index="key"  wx:for-item="value" wx:key="Id" >  
+                    <view class="order_no_text">公司地址:{{item.CompanyAddress}}</view>
+            </view>
+        </view>
+    </view> -->
+<view class="navigator">
+    <view class="tagsStyle">
+        <view class="content" bindtap="navClick">
+            <view class="orderDetail">
+                <view class="orderDate">公司地址：{{Model.CompanyAddress}}</view>
+                <view class="orderDate">联系人:{{Model.ContactPerson}}</view>
+                <view class="orderDate">联系方式:{{Model.ContactDetails}}</view>
+                <view class="orderDate">客户来源：{{Model.CustomerSource}}</view>
+                <view class="orderDate">来源方式：{{Model.SourceMethod}}</view>
+                <view class="orderDate">产品类型：{{itModelem.ProductType}}</view>
+                <view class="orderDate">基本需求：{{Model.BasicNeeds}}</view>
+            </view>
         </view>
     </view>
-    <view class="btnStyle">
-        <view class="btnStyle1" wx:if="{{btnShow}}">
-            <van-button type="primary" size="small">添加</van-button>
-            <van-button type="danger" size="small">删除</van-button>
-        </view>
-        <view class="btnStyle1" wx:if="{{!btnShow}}">
-            <van-button type="primary" size="small">次要按钮</van-button>
-            <van-button type="primary" size="small">次要按钮</van-button>
-        </view>
+</view>
+<view class="collapse">
+    <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+        <van-collapse-item title="状态1" name="1">提供多样店铺模板，快速搭建网上商城</van-collapse-item>
+        <van-collapse-item title="状态2" name="2">网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失</van-collapse-item>
+        <van-collapse-item title="状态3" name="3">线上拓客，随时预约，贴心顺手的开单收银</van-collapse-item>
+    </van-collapse>
+</view>
+<view class="btnStyle">
+    <view class="btnStyle1">
+        <van-button type="primary" size="small" data-id="{{Model.Id}}" bindtap="handelfollow">需求跟进</van-button>
+        <van-button type="danger" size="small">下一步</van-button>
     </view>
 </view>
