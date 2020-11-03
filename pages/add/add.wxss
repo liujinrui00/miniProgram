@@ -7,7 +7,7 @@
 }
 .btn {
   position: absolute;
-  bottom: 0;
+  bottom: 10rpx;
   width: 90%;
   margin:  0 auto;
 }
@@ -17,4 +17,5 @@
     align-items: center;
     width: 100%;
     background-color: #07c160;
+    border-radius: 15rpx;
 }

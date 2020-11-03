@@ -15,7 +15,7 @@ class WxValidate {
         })
         this.__init()
     }
-
+  
     /**
      * __init
      */
@@ -24,7 +24,7 @@ class WxValidate {
         this.__initDefaults()
         this.__initData()
     }
-
+  
     /**
      * 初始化数据
      */
@@ -32,7 +32,7 @@ class WxValidate {
         this.form = {}
         this.errorList = []
     }
-
+  
     /**
      * 初始化默认提示信息
      */
@@ -59,7 +59,7 @@ class WxValidate {
             }
         }
     }
-
+  
     /**
      * 初始化默认验证方法
      */
@@ -77,7 +77,7 @@ class WxValidate {
                 } else if (typeof value === 'boolean') {
                     return !0
                 }
-
+  
                 return value.length > 0
             },
             /**
@@ -178,7 +178,7 @@ class WxValidate {
             },
         }
     }
-
+  
     /**
      * 添加自定义验证方法
      * @param {String} name 方法名
@@ -189,7 +189,7 @@ class WxValidate {
         this.methods[name] = method
         this.defaults.messages[name] = message !== undefined ? message : this.defaults.messages[name]
     }
-
+  
     /**
      * 判断验证方法是否存在
      */
@@ -202,7 +202,7 @@ class WxValidate {
         }
         return methods.indexOf(value) !== -1
     }
-
+  
     /**
      * 格式化提示信息模板
      */
@@ -231,7 +231,7 @@ class WxValidate {
         })
         return source
     }
-
+  
     /**
      * 判断规则依赖是否存在
      */
@@ -250,14 +250,14 @@ class WxValidate {
         }
         return param
     }
-
+  
     /**
      * 判断输入值是否为空
      */
     optional(value) {
         return !this.methods.required(value) && 'dependency-mismatch'
     }
-
+  
     /**
      * 获取自定义字段的提示信息
      * @param {String} param 字段名
@@ -268,7 +268,7 @@ class WxValidate {
         const isObject = typeof params === 'object'
         if (params && isObject) return params[rule.method]
     }
-
+  
     /**
      * 获取某个指定字段的提示信息
      * @param {String} param 字段名
@@ -277,16 +277,16 @@ class WxValidate {
     defaultMessage(param, rule) {
         let message = this.customMessage(param, rule) || this.defaults.messages[rule.method]
         let type = typeof message
-
+  
         if (type === 'undefined') {
             message = `Warning: No message defined for ${rule.method}.`
         } else if (type === 'function') {
             message = message.call(this, rule.parameters)
         }
-
+  
         return message
     }
-
+  
     /**
      * 缓存错误信息
      * @param {String} param 字段名
@@ -295,14 +295,14 @@ class WxValidate {
      */
     formatTplAndAdd(param, rule, value) {
         let msg = this.defaultMessage(param, rule)
-
+  
         this.errorList.push({
             param: param,
             msg: msg,
             value: value,
         })
     }
-
+  
     /**
      * 验证某个指定字段的规则
      * @param {String} param 字段名
@@ -310,35 +310,35 @@ class WxValidate {
      * @param {Object} data 需要验证的数据对象
      */
     checkParam(param, rules, data) {
-
+  
         // 缓存数据对象
         this.data = data
-
+  
         // 缓存字段对应的值
         const value = data[param] !== null && data[param] !== undefined ? data[param] : ''
-
+  
         // 遍历某个指定字段的所有规则，依次验证规则，否则缓存错误信息
         for (let method in rules) {
-
+  
             // 判断验证方法是否存在
             if (this.isValidMethod(method)) {
-
+  
                 // 缓存规则的属性及值
                 const rule = {
                     method: method,
                     parameters: rules[method]
                 }
-
+  
                 // 调用验证方法
                 const result = this.methods[method](value, rule.parameters)
-
+  
                 // 若result返回值为dependency-mismatch，则说明该字段的值为空或非必填字段
                 if (result === 'dependency-mismatch') {
                     continue
                 }
-
+  
                 this.setValue(param, method, result, value)
-
+  
                 // 判断是否通过验证，否则缓存错误信息，跳出循环
                 if (!result) {
                     this.formatTplAndAdd(param, rule, value)
@@ -347,7 +347,7 @@ class WxValidate {
             }
         }
     }
-
+  
     /**
      * 设置字段的默认验证值
      * @param {String} param 字段名
@@ -362,7 +362,7 @@ class WxValidate {
             $viewValue: ``,
         }
     }
-
+  
     /**
      * 设置字段的验证值
      * @param {String} param 字段名
@@ -378,42 +378,42 @@ class WxValidate {
         params.$success[method] = result
         params.$viewValue = value
     }
-
+  
     /**
      * 验证所有字段的规则，返回验证是否通过
      * @param {Object} data 需要验证数据对象
      */
     checkForm(data) {
         this.__initData()
-
+  
         for (let param in this.rules) {
             this.setView(param)
             this.checkParam(param, this.rules[param], data)
         }
-
+  
         return this.valid()
     }
-
+  
     /**
      * 返回验证是否通过
      */
     valid() {
         return this.size() === 0
     }
-
+  
     /**
      * 返回错误信息的个数
      */
     size() {
         return this.errorList.length
     }
-
+  
     /**
      * 返回所有错误信息
      */
     validationErrors() {
         return this.errorList
     }
-}
-
-export default WxValidate
+  }
+  
+  export default WxValidate

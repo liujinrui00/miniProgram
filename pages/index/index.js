@@ -6,9 +6,10 @@ import {
 // pages/index/index.js
 Page({
   data: {
-      orders1:[], 
+      ordersList:[],     
   },
-  Status:1,
+  Status1:1,
+  Status2:2,
   // 页大小
   pageSize:10,
   //总数
@@ -19,12 +20,15 @@ Page({
   totalPages:1,
   onLoad:function(){
     this.getClientList()
+    // this.getClientList1()
   },
+
+  // 获取 跟进 项目详情
   async getClientList(){
     const res = await request({
       url:"/getclientlist",
       data:{
-        Status:this.Status,
+        Status:this.Status1,
         pageSize:this.pageSize,
         count:this.count,
         curPage:this.curPage,
@@ -39,12 +43,75 @@ Page({
     this.totalPages = Math.ceil(total / this.pageSize);
     console.log( this.totalPages);
     this.setData({
-      orders1:[...res.data.ResultData.List,...this.data.orders1]
+      ordersList:[...res.data.ResultData.List,...this.data.ordersList]
     })
-    console.log(this.data.orders1);
+  
     //关闭下来刷新的窗口
     wx.stopPullDownRefresh()
   },
+  async onClick(e){
+    console.log(e);
+    const {index} = e.detail
+    console.log(index+1);
+    const openid = wx.getStorageSync("openid")
+   
+    //  const res = await request({
+    //   url:"/getclientlist",
+    //   data:{
+    //     Status:this.Status2,
+    //     pageSize:this.pageSize,
+    //     count:this.count,
+    //     curPage:this.curPage,
+    //   },
+    //   method:"POST"
+    // })
+    wx.request({
+      url: 'https://www.aescr.club/api/1.0/user/getclientlist',
+      data: {
+        Status:index+1,
+        pageSize:this.pageSize,
+        count:this.count,
+        curPage:this.curPage,
+      },
+      header: {"openid":openid},
+      method: 'POST',
+      success: (result) => {
+        this.setData({
+          ordersList:result.data.ResultData.List
+        })
+      },
+    });
+    
+    
+      
+  },
+  //  async getClientList1(){
+  //   const res = await request({
+  //     url:"/getclientlist",
+  //     data:{
+  //       Status:this.Status2,
+  //       pageSize:this.pageSize,
+  //       count:this.count,
+  //       curPage:this.curPage,
+  //     },
+  //     method:"POST"
+  //   })
+  //   console.log(res);
+  //   //总条数
+  //   const total = res.data.ResultCount
+  //   console.log(total);
+  //   //计算总页数
+  //   this.totalPages = Math.ceil(total / this.pageSize);
+  //   console.log( this.totalPages);
+  //   this.setData({
+  //     orders2:[...res.data.ResultData.List,...this.data.orders2]
+  //   })
+  //   console.log(this.data.orders2);
+  //   //关闭下来刷新的窗口
+  //   wx.stopPullDownRefresh()
+  //   console.log(e);
+  // },
+  //跳转到详情页
   navClick(event){
     var id=event.currentTarget.dataset.id;
     wx.navigateTo({

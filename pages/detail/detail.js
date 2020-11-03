@@ -6,11 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    autoSize: {
+      maxHeight: 120,
+      minHeight: 80
+    },
     Model:{},
     DemandList:[],
-    activeName: '1',
+    // activeName: '1',
+    show:false,
+    form:{
+      NewDemand:'',
+      Feedback:''
+    }
+
   },
-  onShow:function(){
+  onLoad:function(){
     let pages =  getCurrentPages();
     // console.log(pages);
     let currentPages = pages[pages.length-1];
@@ -40,28 +50,78 @@ Page({
     })
     console.log(res);
     this.setData({
-      Model:res.data.ResultData.Model
+      Model:res.data.ResultData.Model,
+      DemandList:res.data.ResultData.DemandList,
     })
   },
+
+  // 手风琴事件
   onChange(event) {
+    let index=event.currentTarget.dataset.index;
+    let daset= this.data.DemandList;
+    daset[index].activeName= event.detail;
     this.setData({
-      activeName: event.detail,
+      DemandList: daset,
     });
   },
   // 点击需求跟进按钮
-  async handelfollow(e){
-    const id = e.currentTarget.dataset.id
+ handelfollow(e){
+    // console.log(e);
+    const clientid = e.currentTarget.dataset.id
+    wx.setStorageSync("clientid",clientid)
+    const btnid = e.currentTarget.id
+    wx.setStorageSync("btnid",btnid)
+    // const openid = wx.getStorageSync("openid")
+    // // console.log(openid);
+    // // console.log(id);
+    // const res = await request({
+    //   url:"/addfollow",
+    //   data:{
+    //     clientid,
+    //     openid,
+    //     NewDemand:btnid
+    //     // Feedback
+    //   },
+    //   method:"post"
+    // })
+    // console.log(res)
+    this.setData({
+      show:true
+    })
+  },
+
+  // 提交需求和反馈
+  async formSubmit(e){
+    const clientid = wx.getStorageSync("clientid")
+    // const btnid = wx.getStorageSync("btnid")
     const openid = wx.getStorageSync("openid")
+    const NewDemand = e.detail.value.NewDemand
+    const Feedback = e.detail.value.Feedback
+    console.log(NewDemand);
+    console.log(Feedback);
     console.log(openid);
-    console.log(id);
+    // console.log(id);
     const res = await request({
       url:"/addfollow",
       data:{
-        id,
+        clientid,
         openid,
-        // NewDemand,
-        // Feedback
-      }
+        NewDemand,
+        Feedback,
+      },
+      method:"post"
+    })
+    console.log(res)
+    // console.log(e);
+    this.setData({
+      show:false,
+      form:''
+    })
+    this.getDetails(clientid)
+  },
+  handlecancle(){
+    this.setData({
+      show:false,
     })
   }
 })

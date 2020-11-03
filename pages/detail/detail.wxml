@@ -1,11 +1,3 @@
-<!-- <view class="page"></view> -->
-<!-- <view class="order_mian">
-        <view class="content">
-            <view class="order_item" wx:for="{{DemandList}}" wx:for-index="key"  wx:for-item="value" wx:key="Id" >  
-                    <view class="order_no_text">公司地址:{{item.CompanyAddress}}</view>
-            </view>
-        </view>
-    </view> -->
 <view class="navigator">
     <view class="tagsStyle">
         <view class="content" bindtap="navClick">
@@ -21,16 +13,56 @@
         </view>
     </view>
 </view>
-<view class="collapse">
-    <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
-        <van-collapse-item title="状态1" name="1">提供多样店铺模板，快速搭建网上商城</van-collapse-item>
-        <van-collapse-item title="状态2" name="2">网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失</van-collapse-item>
-        <van-collapse-item title="状态3" name="3">线上拓客，随时预约，贴心顺手的开单收银</van-collapse-item>
-    </van-collapse>
-</view>
-<view class="btnStyle">
-    <view class="btnStyle1">
-        <van-button type="primary" size="small" data-id="{{Model.Id}}" bindtap="handelfollow">需求跟进</van-button>
-        <van-button type="danger" size="small">下一步</van-button>
+<!-- 手风琴 -->
+<view class="CPstyle">
+    <view class="collapse" wx:for="{{DemandList}}">
+        <van-collapse accordion value="{{ item.activeName }}" data-index="{{index}}" bind:change="onChange">
+            <van-collapse-item title="创建人: {{item.Stalker}}   创建时间:{{item.CreateTime}}" name="1">
+                <view class="more">
+                    <view class="ND">
+                        <van-panel title="新的需求">
+                            <view class="fontStyle">{{item.NewDemand}}</view>
+                        </van-panel>
+                    </view>
+                    <view class="FB">
+                        <van-panel title="反馈">
+                            <view class="fontStyle">{{item.Feedback}}</view>
+                        </van-panel>
+                    </view>
+                </view>
+            </van-collapse-item>
+        </van-collapse>
     </view>
+</view>
+<!-- 按钮 -->
+<view class="btnStyle">
+    <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:75rpx">
+        需求跟进
+    </button>
+    <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;float:right;height:75rpx">
+        下一步
+    </button>
+</view>
+<!-- 点击需求跟进弹出添加框 -->
+<view class="followText">
+    <van-popup show="{{show}}" custom-style="width:80%;height:50%">
+        <view class="addForm">
+            <form bindsubmit="formSubmit">
+                <van-cell-group>
+                    <van-field clearable value="{{form.NewDemand}}" name="NewDemand" label="新的需求" placeholder="请输入基本需求" required maxlength="-1" show-word-limit="{{false}}" type="textarea" autosize="{{autoSize}}" size="large" />
+                    <van-field clearable value="{{form.Feedback}}" name="Feedback" label="反馈" placeholder="请输入基本需求" required maxlength="-1" show-word-limit="{{false}}" type="textarea" autosize="{{autoSize}}" size="large" />
+                </van-cell-group>
+                <view class="view1">
+                    <view class="followBtn">
+                        <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:75rpx" form-type="submit">
+                            需求跟进
+                        </button>
+                        <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;float:right;height:75rpx" bindtap="handlecancle">
+                            取消
+                        </button>
+                    </view>
+                </view>
+            </form>
+        </view>
+    </van-popup>
 </view>

@@ -1,45 +1,27 @@
-<van-tabs type="card">
-  <van-tab title="标签 1">
-    <view url="/pages/detail/detail" wx:for="{{orders1}}" wx:key="order_number" class="navigator">
-      <view class="tagsStyle">
-        <van-swipe-cell right-width="{{ 60 }}">
-          <view class="content" data-id="{{item.Id}}"  bindtap="navClick">
-            <view class="orderDetail">
-              <view class="orderDate">公司地址：{{item.CompanyAddress}}</view>
-              <view class="orderDate">联系人:{{item.ContactPerson}}</view>
-              <view class="orderDate">联系方式:{{item.ContactDetails}}</view>
-              <view class="orderDate">客户来源：{{item.CustomerSource}}</view>
-              <view class="orderDate">来源方式：{{item.SourceMethod}}</view>
-              <view class="orderDate">产品类型：{{item.ProductType}}</view>
-              <view class="orderDate">基本需求：{{item.BasicNeeds}}</view>
-            </view>
-          </view>
-          <view slot="right" class="deleteStyle">删除</view>
-        </van-swipe-cell>
-      </view>
-    </view>
+<van-tabs type="card" bind:click="onClick">
+  <van-tab title="标签1">
   </van-tab>
-  <van-tab title="标签 2">
-    <view url="/pages/detail/detail" wx:for="{{orders1}}" wx:key="order_number" class="navigator">
-      <view class="tagsStyle">
-        <van-swipe-cell right-width="{{ 60 }}">
-          <view class="content" data-id="{{item.Id}}"  bindtap="navClick">
-            <view class="orderDetail">
-              <view class="orderDate">公司地址：{{item.CompanyAddress}}</view>
-              <view class="orderDate">联系人:{{item.ContactPerson}}</view>
-              <view class="orderDate">联系方式:{{item.ContactDetails}}</view>
-              <view class="orderDate">客户来源：{{item.CustomerSource}}</view>
-              <view class="orderDate">来源方式：{{item.SourceMethod}}</view>
-              <view class="orderDate">产品类型：{{item.ProductType}}</view>
-              <view class="orderDate">基本需求：{{item.BasicNeeds}}</view>
-            </view>
-          </view>
-          <view slot="right" class="deleteStyle">删除</view>
-        </van-swipe-cell>
-      </view>
-    </view>
+  <van-tab title="标签 2" >
   </van-tab>
 </van-tabs>
+<view url="/pages/detail/detail" wx:for="{{ordersList}}" wx:key="order_number" class="navigator" bindtap="getClientList1">
+      <view class="tagsStyle">
+        <van-swipe-cell right-width="{{ 60 }}">
+          <view class="content" data-id="{{item.Id}}"  bindtap="navClick">
+            <view class="orderDetail">
+              <view class="orderDate">公司地址：{{item.CompanyAddress}}</view>
+              <view class="orderDate">联系人:{{item.ContactPerson}}</view>
+              <view class="orderDate">联系方式:{{item.ContactDetails}}</view>
+              <view class="orderDate">客户来源：{{item.CustomerSource}}</view>
+              <view class="orderDate">来源方式：{{item.SourceMethod}}</view>
+              <view class="orderDate">产品类型：{{item.ProductType}}</view>
+              <view class="orderDate">基本需求：{{item.BasicNeeds}}</view>
+            </view>
+          </view>
+          <view slot="right" class="deleteStyle">删除</view>
+        </van-swipe-cell>
+      </view>
+    </view>
 <navigator url="/pages/add/add" open-type="navigate" class="addBtn">
   <van-icon name="add" color="#07c160" size="75rpx" />
 </navigator>
