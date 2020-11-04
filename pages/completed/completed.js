@@ -56,15 +56,15 @@ Page({
   onLoad:function(){
     this.getIndex1()
   },
-  async getIndex1(){
-    const res = await request({
-      url:"/mock1"
-    })
-    console.log(res.data.data);
-    this.setData({
-      orders1:res.data.data,    
-    })
-  },
+  // async getIndex1(){
+  //   const res = await request({
+  //     url:"/mock1"
+  //   })
+  //   console.log(res.data.data);
+  //   this.setData({
+  //     orders1:res.data.data,    
+  //   })
+  // },
   navClick(){
     console.log("AESCR")
     wx.navigateTo({

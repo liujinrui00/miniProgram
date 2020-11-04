@@ -1,9 +1,11 @@
-<van-tabs type="card" bind:click="onClick">
-  <van-tab title="标签1">
+<!-- 头部标签栏 -->
+<van-tabs type="link" bind:click="onClick">
+  <van-tab title="新项目">
   </van-tab>
-  <van-tab title="标签 2" >
+  <van-tab title="跟进中" >
   </van-tab>
 </van-tabs>
+<!-- 项目列表渲染 -->
 <view url="/pages/detail/detail" wx:for="{{ordersList}}" wx:key="order_number" class="navigator" bindtap="getClientList1">
       <view class="tagsStyle">
         <van-swipe-cell right-width="{{ 60 }}">
@@ -22,9 +24,7 @@
         </van-swipe-cell>
       </view>
     </view>
+<!--左下角点击按钮  -->
 <navigator url="/pages/add/add" open-type="navigate" class="addBtn">
   <van-icon name="add" color="#07c160" size="75rpx" />
 </navigator>
-<!-- <van-cell-group>
-    <van-cell title="单元格" value="内容" />
-  </van-cell-group> -->

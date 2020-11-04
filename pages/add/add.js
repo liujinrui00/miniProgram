@@ -1,7 +1,5 @@
 // pages/add/add.js
-import {
-  request
-} from "../../request/index.js";
+import {request} from "../../request/index.js";
 import wxValidate from "../../utils/wxValidate"
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 Page({
@@ -80,36 +78,16 @@ Page({
     }
     this.wxValidate = new wxValidate(rules,message)
   },
-
-
   //表单提交
   async formSubmit(e) {
-    console.log(e)
+    // console.log(e)
     const openid = wx.getStorageSync('openid')
-    console.log(openid);
+    // console.log(openid);
     const d = e.detail.value
     if(!this.wxValidate.checkForm(d)){
       const error = this.wxValidate.errorList[0]  
       this.showModal(error)
     }else{
-      // wx.request({
-      //   url: 'https://www.aescr.club/api/1.0/user/addclient',
-      //   data: {
-      //     CompanyAddress:d.CompanyAddress,
-      //     ContactPerson:d.ContactPerson,
-      //     ContactDetails:d.ContactDetails,
-      //     CustomerSource:d.CustomerSource,
-      //     SourceMethod:d.SourceMethod,
-      //     ProductType:d.ProductType,
-      //     BasicNeeds:d.BasicNeeds
-      //   },
-      //   header: {"openid":openid},
-      //   method: "POST",
-      //   timeout: 0,
-      //   success: (result) => {
-      //     console.log(result);
-      //   },
-      // })
       const openid = wx.getStorageSync('openid')
       const res = await request({
         url: "/addclient",
@@ -125,8 +103,7 @@ Page({
         method: "post",
         header:{'openid':openid}
       })
-      console.log(res);
-      
+      // console.log(res);     
       if (res.data.ResultCode == 200) {
         Toast.success("添加成功")
       }

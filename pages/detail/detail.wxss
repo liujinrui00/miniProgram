@@ -65,6 +65,7 @@ padding: 10rpx 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  /* margin-bottom: -10rpx; */
 }
 .view1{
   position: absolute;
@@ -98,4 +99,8 @@ padding: 10rpx 0;
 }
 .fontStyle{
   font-size: 50rpx;
+}
+.fontstyle{
+  font-size:30rpx;
+  color:black
 }

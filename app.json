@@ -9,7 +9,9 @@
     "pages/detail/detail",
     "pages/add/add",
     "pages/noFollow/noFollow",
-    "pages/completed/completed"
+    "pages/completed/completed",
+    "pages/NewDemand/NewDemand"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -29,18 +31,6 @@
         "text": "正在跟进",
         "iconPath": "icons/a.png",
         "selectedIconPath": "icons/a-o.png"
-      },
-      {
-        "pagePath": "pages/noFollow/noFollow",
-        "text": "未跟进",
-        "iconPath": "icons/b.png",
-        "selectedIconPath": "icons/b-o.png"
-      },
-      {
-        "pagePath": "pages/completed/completed",
-        "text": "已完成",
-        "iconPath": "icons/c.png",
-        "selectedIconPath": "icons/c-o.png"
       },
       {
         "pagePath": "pages/user/user",

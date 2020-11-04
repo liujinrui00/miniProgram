@@ -113,12 +113,15 @@ Page({
     })
     console.log(res)
     // console.log(e);
+    // 请求成功后，关闭弹窗，清空输入框
     this.setData({
       show:false,
       form:''
     })
     this.getDetails(clientid)
   },
+
+  // 点击取消关闭添加框
   handlecancle(){
     this.setData({
       show:false,

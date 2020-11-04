@@ -1,7 +1,5 @@
 // const { request } = require("../../request")
-import {
-  request
-} from "../../request/index.js";
+import {request} from "../../request/index.js";
 
 // pages/index/index.js
 Page({
@@ -23,7 +21,7 @@ Page({
     // this.getClientList1()
   },
 
-  // 获取 跟进 项目详情
+  // 获取 跟进 项目列表
   async getClientList(){
     const res = await request({
       url:"/getclientlist",
@@ -45,26 +43,15 @@ Page({
     this.setData({
       ordersList:[...res.data.ResultData.List,...this.data.ordersList]
     })
-  
-    //关闭下来刷新的窗口
+    //关闭下拉刷新的窗口
     wx.stopPullDownRefresh()
   },
+  // 点击顶部标签栏，获取不同状态的项目列表并渲染
   async onClick(e){
     console.log(e);
     const {index} = e.detail
     console.log(index+1);
     const openid = wx.getStorageSync("openid")
-   
-    //  const res = await request({
-    //   url:"/getclientlist",
-    //   data:{
-    //     Status:this.Status2,
-    //     pageSize:this.pageSize,
-    //     count:this.count,
-    //     curPage:this.curPage,
-    //   },
-    //   method:"POST"
-    // })
     wx.request({
       url: 'https://www.aescr.club/api/1.0/user/getclientlist',
       data: {
@@ -81,37 +68,8 @@ Page({
         })
       },
     });
-    
-    
-      
   },
-  //  async getClientList1(){
-  //   const res = await request({
-  //     url:"/getclientlist",
-  //     data:{
-  //       Status:this.Status2,
-  //       pageSize:this.pageSize,
-  //       count:this.count,
-  //       curPage:this.curPage,
-  //     },
-  //     method:"POST"
-  //   })
-  //   console.log(res);
-  //   //总条数
-  //   const total = res.data.ResultCount
-  //   console.log(total);
-  //   //计算总页数
-  //   this.totalPages = Math.ceil(total / this.pageSize);
-  //   console.log( this.totalPages);
-  //   this.setData({
-  //     orders2:[...res.data.ResultData.List,...this.data.orders2]
-  //   })
-  //   console.log(this.data.orders2);
-  //   //关闭下来刷新的窗口
-  //   wx.stopPullDownRefresh()
-  //   console.log(e);
-  // },
-  //跳转到详情页
+  //点击跳转到详情页
   navClick(event){
     var id=event.currentTarget.dataset.id;
     wx.navigateTo({
@@ -133,7 +91,7 @@ Page({
     }
   },
 
-//下拉刷新
+    //下拉刷新
   onPullDownRefresh(){
     //1重置数组
     this.setData({

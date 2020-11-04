@@ -1,3 +1,4 @@
+<!--头部主要信息展示 -->
 <view class="navigator">
     <view class="tagsStyle">
         <view class="content" bindtap="navClick">
@@ -15,19 +16,28 @@
 </view>
 <!-- 手风琴 -->
 <view class="CPstyle">
-    <view class="collapse" wx:for="{{DemandList}}">
+    <view class="collapse" wx:for="{{DemandList}}" wx:key="id">
         <van-collapse accordion value="{{ item.activeName }}" data-index="{{index}}" bind:change="onChange">
             <van-collapse-item title="创建人: {{item.Stalker}}   创建时间:{{item.CreateTime}}" name="1">
                 <view class="more">
                     <view class="ND">
-                        <van-panel title="新的需求">
+                        <!-- <van-panel title="新的需求">
                             <view class="fontStyle">{{item.NewDemand}}</view>
                         </van-panel>
                     </view>
                     <view class="FB">
                         <van-panel title="反馈">
                             <view class="fontStyle">{{item.Feedback}}</view>
-                        </van-panel>
+                        </van-panel> -->
+                        <view>
+                        <text  decode="{{true}}" class="fontstyle">新的需求:&nbsp;&nbsp; </text>
+                         <text class="fontstyle">{{item.NewDemand}}</text>
+                        </view>
+                         <view>
+                        <text decode="{{true}}" class="fontstyle">反馈:&nbsp;&nbsp; </text>
+                        <text class="fontstyle">{{item.Feedback}}</text>
+                        </view>
+                          
                     </view>
                 </view>
             </van-collapse-item>
@@ -36,10 +46,10 @@
 </view>
 <!-- 按钮 -->
 <view class="btnStyle">
-    <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:75rpx">
+    <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:70rpx;font-size:15px;margin:0 5rpx">
         需求跟进
     </button>
-    <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;float:right;height:75rpx">
+    <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;height:70rpx;font-size:15px">
         下一步
     </button>
 </view>
@@ -54,10 +64,10 @@
                 </van-cell-group>
                 <view class="view1">
                     <view class="followBtn">
-                        <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:75rpx" form-type="submit">
+                        <button type="primary" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{1}}" style="width:49%;float:left;height:70rpx;font-size:15px;" form-type="submit">
                             需求跟进
                         </button>
-                        <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;float:right;height:75rpx" bindtap="handlecancle">
+                        <button type="warn" data-id="{{Model.Id}}" bindtap="handelfollow" id="{{2}}" style="width:49%;float:right;height:70rpx;font-size:15px" bindtap="handlecancle">
                             取消
                         </button>
                     </view>
